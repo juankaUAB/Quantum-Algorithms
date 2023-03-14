@@ -9,7 +9,7 @@ circuito.append([cirq.X(q0), cirq.X(q2), cirq.H(q3)])
 circuito.append([cirq.CNOT(q0, q3), cirq.CNOT(q1, q3), cirq.CNOT(q2, q3)])
 circuito.append([cirq.X(q0), cirq.H(q1), cirq.X(q2)], strategy=InsertStrategy.NEW_THEN_INLINE)
 circuito.append([cirq.H(q0), cirq.H(q2)], strategy=InsertStrategy.NEW_THEN_INLINE)
-circuito.append(cirq.measure(q0,q1,q2))
+circuito.append(cirq.measure(q0,q1,q2), strategy=InsertStrategy.NEW)
 
 simulador = cirq.Simulator()
 resultado = simulador.run(circuito)
